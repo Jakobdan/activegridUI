@@ -81,8 +81,9 @@ app.post("/api/v1/motors", (req, res) => {
   }
 
   const newMotor = { ...req.body, address, value };
-  motors.sort((a, b) => a.address - b.address);
+  
   motors.push(newMotor);
+  motors.sort((a, b) => a.address - b.address);
   res.status(201).json(motors);
 });
 
