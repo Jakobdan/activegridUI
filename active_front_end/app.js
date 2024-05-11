@@ -353,6 +353,18 @@ document.getElementById('stopbutton').addEventListener('mouseup', function() {
     this.classList.toggle('active-stop');
 });
 
+document.getElementById('selectallbutton').addEventListener('mousedown', function() {
+    this.classList.toggle('active-selectall');
+    
+});
+document.getElementById('selectallbutton').addEventListener('mouseup', function() {
+    
+    this.classList.toggle('active-selectall');
+    const motorBoxes = document.querySelectorAll('.motor-box');
+    motorBoxes.forEach(motorBox => {
+        motorBox.classList.toggle('selected')
+    });
+});
 
 // Fetch motors when the page loads
 window.onload = fetchMotors;

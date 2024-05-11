@@ -159,12 +159,23 @@ header {
   font-weight: bold;
   cursor: pointer;
 }
+.selectallbtn{
+  background-color: rgb(55, 0, 220);
+  padding: 20px;
+  display: inline;
+  margin: 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
 
 .active-restart{
   background-color: rgb(38, 172, 38);
 }
 .active-stop{
   background-color: rgb(126, 6, 20);
+}
+.active-selectall{
+  background-color: rgb(38, 7, 132);
 }
 
 
