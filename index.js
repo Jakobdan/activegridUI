@@ -139,6 +139,14 @@ app.post("/api/v1/stop", (req, res) => {
   res.status(201).json(motors);
 
 });
+app.post("/api/v1/changeAll/:val", (req, res) => {
+
+  motors.forEach(motor => {
+    motor.value = parseInt(req.params.val)
+  })
+  res.status(201).json(motors);
+
+});
 
 // PATCH an existing motor by Address
 // PATCH an existing motor by Address

@@ -143,29 +143,22 @@ header {
   color: rgb(186, 0, 0);
 }
 
-.restartbtn{
+.restartbtn,.stopbtn,.selectallbtn,.openallbtn,.closeallbtn{
   background-color: rgb(69, 243, 69);
   padding: 20px;
-  display: inline;
-  margin: 10px;
+  display: inline-block;
+  margin: 5px;
   font-weight: bold;
   cursor: pointer;
 }
 .stopbtn{
   background-color: rgb(225, 14, 39);
-  padding: 20px;
-  display: inline;
-  margin: 10px;
-  font-weight: bold;
-  cursor: pointer;
 }
 .selectallbtn{
   background-color: rgb(55, 0, 220);
-  padding: 20px;
-  display: inline;
-  margin: 10px;
-  font-weight: bold;
-  cursor: pointer;
+}
+.openallbtn,.closeallbtn{
+  background-color: rgb(175, 175, 175);
 }
 
 .active-restart{
@@ -178,4 +171,7 @@ header {
   background-color: rgb(38, 7, 132);
 }
 
+.active-open-close-all{
+  background-color: rgb(124, 124, 124);
+}
 

@@ -366,6 +366,68 @@ document.getElementById('selectallbutton').addEventListener('mouseup', function(
     });
 });
 
+
+document.getElementById('openallbutton').addEventListener('mousedown', function() {
+    this.classList.toggle('active-open-close-all');
+    
+});
+document.getElementById('openallbutton').addEventListener('mouseup', async function() {
+    this.classList.toggle('active-open-close-all');
+    
+    try {
+        const response = await axios.get(API_URL + 'motors');
+        const motors = response.data;
+
+        motors.forEach(motor => {
+             // Set the value of each motor to 0 (assuming you wanted to reset rather than set to 90)
+            try {
+                const response = axios.patch(API_URL + `motors/${motor.address}`, {
+                    address: parseInt(motor.address),
+                    type: "pos",
+                    value: 0 // Convert value to integer
+                });
+                        fetchMotors(); // Refresh motor list after updating
+            } catch (error) {
+                console.error('Error updating motor:', error);
+            }
+        });
+        fetchMotors()
+    } catch (error) {
+        console.error('Failed to fetch motors:', error);
+    }
+});
+
+document.getElementById('closeallbutton').addEventListener('mousedown', function() {
+    this.classList.toggle('active-open-close-all');
+    
+});
+document.getElementById('closeallbutton').addEventListener('mouseup', async function() {
+    this.classList.toggle('active-open-close-all');
+    
+    try {
+        const response = await axios.get(API_URL + 'motors');
+        const motors = response.data;
+
+        motors.forEach(motor => {
+             // Set the value of each motor to 0 (assuming you wanted to reset rather than set to 90)
+            try {
+                const response = axios.patch(API_URL + `motors/${motor.address}`, {
+                    address: parseInt(motor.address),
+                    type: "pos",
+                    value: 90 // Convert value to integer
+                });
+        
+                fetchMotors(); // Refresh motor list after updating
+            } catch (error) {
+                console.error('Error updating motor:', error);
+            }
+        });
+        fetchMotors()
+    } catch (error) {
+        console.error('Failed to fetch motors:', error);
+    }
+});
+
 // Fetch motors when the page loads
 window.onload = fetchMotors;
 
