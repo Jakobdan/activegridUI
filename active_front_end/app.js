@@ -289,13 +289,70 @@ async function updateSelectedMotorsBackend() {
       console.error('Error updating motors on the backend:', error);
   }
 }
+async function restartmotors() {
 
+    try {
+        const response = await axios.post(API_URL + 'restart');
+        const data = response.data;
+
+        console.log('Restarted:', data);
+        fetchMotors(); // Refresh motor list after adding
+        errorContainer.textContent = ''; // Clear any previous errors
+    } catch (error) {
+        console.error('Error restarting motors:', error);
+
+        // Check if the error response has data and a message
+        if (error.response && error.response.data && error.response.data.message) {
+            errorContainer.textContent = error.response.data.message;
+        } else {
+            errorContainer.textContent = 'Failed to restart motors due to an unexpected error.';
+        }
+    }
+}
+async function stopmotors() {
+
+    try {
+        const response = await axios.post(API_URL + 'stop');
+        const data = response.data;
+
+        console.log('Motors stoped:', data);
+        fetchMotors(); // Refresh motor list after adding
+        errorContainer.textContent = ''; // Clear any previous errors
+    } catch (error) {
+        console.error('Error stoping motor:', error);
+
+        // Check if the error response has data and a message
+        if (error.response && error.response.data && error.response.data.message) {
+            errorContainer.textContent = error.response.data.message;
+        } else {
+            errorContainer.textContent = 'Failed to stop motors due to an unexpected error.';
+        }
+    }
+}
 
 
 
 // Example usage:
 // Update all selected motors on the backend
 //updateSelectedMotorsBackend();
+
+
+document.getElementById('restartbutton').addEventListener('mousedown', function() {
+    this.classList.toggle('active-restart');
+});
+document.getElementById('restartbutton').addEventListener('mouseup', function() {
+    restartmotors()
+    this.classList.toggle('active-restart');
+});
+
+document.getElementById('stopbutton').addEventListener('mousedown', function() {
+    this.classList.toggle('active-stop');
+});
+document.getElementById('stopbutton').addEventListener('mouseup', function() {
+    stopmotors()
+    this.classList.toggle('active-stop');
+});
+
 
 // Fetch motors when the page loads
 window.onload = fetchMotors;

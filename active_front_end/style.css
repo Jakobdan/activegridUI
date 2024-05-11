@@ -142,3 +142,29 @@ header {
   margin: 5px;
   color: rgb(186, 0, 0);
 }
+
+.restartbtn{
+  background-color: rgb(69, 243, 69);
+  padding: 20px;
+  display: inline;
+  margin: 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.stopbtn{
+  background-color: rgb(225, 14, 39);
+  padding: 20px;
+  display: inline;
+  margin: 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.active-restart{
+  background-color: rgb(38, 172, 38);
+}
+.active-stop{
+  background-color: rgb(126, 6, 20);
+}
+
+

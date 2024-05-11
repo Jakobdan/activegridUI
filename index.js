@@ -116,6 +116,29 @@ app.post("/api/v1/restart", (req, res) => {
   res.status(201).json(motors);
 
 });
+app.post("/api/v1/stop", (req, res) => {
+
+  motors = [
+    { address: 1, type: "speed", value: 0},
+    { address: 2, type: "speed", value: 0},
+    { address: 3, type: "speed", value:0},
+    { address: 4, type: "speed", value: 0},
+    { address: 5, type: "speed", value: 0},
+    { address: 6, type: "speed", value: 0},
+    { address: 7, type: "speed", value: 0},
+    { address: 8, type: "speed", value: 0},
+    { address: 9, type: "speed", value: 0},
+    { address: 10, type: "speed", value: 0},
+    { address: 11, type: "speed", value: 0},
+    { address: 12, type: "speed", value: 0},
+    { address: 13, type: "speed", value: 0},
+    { address: 14, type: "speed", value: 0},
+    { address: 15, type: "speed", value: 0},
+    { address: 16, type: "speed", value: 0},
+  ];
+  res.status(201).json(motors);
+
+});
 
 // PATCH an existing motor by Address
 // PATCH an existing motor by Address
