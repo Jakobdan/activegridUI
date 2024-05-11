@@ -28,7 +28,7 @@ function createMotorBox(motor) {
 
     // Create content for the motor box
     const content = `
-        <p><strong>Address:</strong> ${motor.address}</p>
+        <p><strong>Motor:</strong> ${motor.address}</p>
         <p><strong>Type:</strong> 
             <select class="type-select" data-address="${motor.address}">
                 <option value="speed" ${motor.type === 'speed' ? 'selected' : ''}>Speed</option>
@@ -77,6 +77,49 @@ document.getElementById('slider').addEventListener('input', function(event) {
     });
     
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const typeSelect = document.getElementById('type-select');
+    const slider = document.getElementById('slider');
+    const sliderValue = document.getElementById('sliderValue');
+
+    function updateSliderAttributes() {
+        switch (typeSelect.value) {
+            case 'speed':
+                slider.min = "0";
+                slider.max = "240";
+                slider.value = 0;
+                sliderValue.textContent = `${slider.value} RPM`;
+                break;
+            case 'pos':
+                slider.min = "-180";
+                slider.max = "180";
+                slider.value = 0;
+                sliderValue.textContent = `${slider.value}°`;
+                break;
+            default:
+                slider.min = "0";
+                slider.max = "240";
+                slider.value = 0;
+                sliderValue.textContent = `${slider.value} RPM`;
+                break;
+        }
+        slider.value = 0;
+    }
+
+    // Event listener for the dropdown changes
+    typeSelect.addEventListener('change', updateSliderAttributes);
+
+    // Event listener for the slider changes
+    slider.addEventListener('input', function() {
+        const unit = typeSelect.value === 'speed' ? ' RPM' : '°';
+        sliderValue.textContent = `${slider.value}${unit}`;
+    });
+
+    // Initialize slider attributes on load
+    updateSliderAttributes();
+});
+
 
 
 
@@ -150,6 +193,7 @@ async function addMotor(event) {
 }
 // Function to handle scroll wheel event on input fields and slider
 function handleScroll(event) {
+    
   const target = event.target;
   const step = parseInt(target.step) || 1; // Get step attribute or default to 1
   let currentValue = parseInt(target.value) || 0;
@@ -188,8 +232,9 @@ valueInputs.forEach(input => {
   input.addEventListener('wheel', handleScroll2);
 });
 
-const slider = document.getElementById('slider');
+const slider = document.getElementById('sliderContainer');
 slider.addEventListener('wheel', handleScroll);
+
 
 // Function to update all selected motors with the provided type and value
 function updateSelectedMotors(type, value) {

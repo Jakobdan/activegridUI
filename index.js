@@ -81,6 +81,7 @@ app.post("/api/v1/motors", (req, res) => {
   }
 
   const newMotor = { ...req.body, address, value };
+  motors.sort((a, b) => a.address - b.address);
   motors.push(newMotor);
   res.status(201).json(motors);
 });
@@ -114,6 +115,7 @@ app.patch("/api/v1/motors/:address", (req, res) => {
   try {
     // Update the motor object with the new address and value
     motors[index] = { ...motors[index], ...updatedMotor, address: motorAddress, value };
+    motors.sort((a, b) => a.address - b.address);
     res.json(motors[index]);
   } catch (error) {
     console.error('Error updating motor:', error);

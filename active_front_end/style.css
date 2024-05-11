@@ -21,12 +21,12 @@ header {
 }
  /* Style for motor boxes */
  .motor-box {
-  border: 5px solid #515151;
+  border: 5px solid #ffffff;
   background-color: rgb(89, 89, 89);
   color: white;
   padding: 10px;
-  margin: 10px;
-  width: 8%;
+  margin: 0px;
+  width: 150px;
 
   border-radius: 1px;
   position: relative;
@@ -53,7 +53,7 @@ header {
   background-color: rgb(94, 94, 94);
   color: white;
   padding: 10px;
-  margin: 10px;
+  margin: 0px;
   width: 150px;
   border-radius: 10px;
   position: relative;
@@ -68,15 +68,15 @@ header {
 
 /* Style for motor type select dropdown */
 .type-select {
-  width: 100%;
+  width: 50%;
   margin-bottom: 10px;
   margin-top: 10px;
   background-color: rgb(58, 58, 58);
-  color: white;
+  color: rgb(255, 255, 255);
 }
 /* Style for motor value input */
 .value-input {
-  width: calc(100% - 20px); /* Adjust width to fit within the box */
+  width: 50%; /* Adjust width to fit within the box */
   background-color: rgb(56, 55, 55);
   color: white;
   margin-bottom: 10px;
@@ -122,9 +122,10 @@ header {
 
 }
 
-
 #motorContainer{
   display: inline-block;
   align-items: center;
-  width: 100%;
+  width: 1485px;
 }
+
+
