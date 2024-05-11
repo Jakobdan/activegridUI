@@ -150,6 +150,7 @@ header {
   margin: 5px;
   font-weight: bold;
   cursor: pointer;
+  width: 100px;
 }
 .stopbtn{
   background-color: rgb(225, 14, 39);
@@ -163,6 +164,7 @@ header {
 
 .active-restart{
   background-color: rgb(38, 172, 38);
+  
 }
 .active-stop{
   background-color: rgb(126, 6, 20);
