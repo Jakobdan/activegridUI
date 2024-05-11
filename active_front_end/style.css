@@ -26,8 +26,8 @@ header {
   color: white;
   padding: 10px;
   margin: 10px;
-  width: 150px;
-  height: 170px;
+  width: 8%;
+
   border-radius: 1px;
   position: relative;
 
@@ -92,7 +92,9 @@ header {
 
 
 .units{
-  display: inline-block; 
+  display: inline-block;
+  
+  
 }
 
 /* Style for selected motor boxes */
@@ -122,6 +124,7 @@ header {
 
 
 #motorContainer{
-  display: inline-flex;
+  display: inline-block;
   align-items: center;
+  width: 100%;
 }
