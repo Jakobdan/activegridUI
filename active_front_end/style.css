@@ -74,6 +74,7 @@ header {
   margin-top: 10px;
   background-color: rgb(58, 58, 58);
   color: rgb(255, 255, 255);
+  border-color: rgb(71, 71, 71);
 }
 /* Style for motor value input */
 .value-input {
@@ -123,6 +124,9 @@ header {
   color: rgb(0, 0, 0);
 }
 
+#type{
+  border-color: rgb(205, 205, 205);
+}
 .logo{
   display: inline-block;
   align-self:flex-start
@@ -131,4 +135,10 @@ header {
 #headlist{
   display: inline-flex;
   
+}
+
+#errorContainer{
+  font-size: small;
+  margin: 5px;
+  color: rgb(186, 0, 0);
 }

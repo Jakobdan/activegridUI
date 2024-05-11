@@ -83,7 +83,7 @@ app.post("/api/v1/motors", (req, res) => {
 
   // Check if the address already exists
   if (motors.some(motor => motor.address === address)) {
-    return res.status(409).json({ message: "Motor with this address already exists" });
+    return res.status(409).json({ message: `Motor with address ${address}already exists` });
   }
 
   const newMotor = { ...req.body, address, value };
