@@ -69,7 +69,8 @@ app.get("/api/v1/motors/:Address", (req, res) => {
   res.json(motor);
 });
 
-// POST a new motor
+
+
 app.post("/api/v1/motors", (req, res) => {
   // Ensure address and value are integers
   const address = parseInt(req.body.address);
@@ -78,6 +79,11 @@ app.post("/api/v1/motors", (req, res) => {
   // Check if address and value are valid integers
   if (isNaN(address) || isNaN(value)) {
     return res.status(400).json({ message: "Address and value must be integers" });
+  }
+
+  // Check if the address already exists
+  if (motors.some(motor => motor.address === address)) {
+    return res.status(409).json({ message: "Motor with this address already exists" });
   }
 
   const newMotor = { ...req.body, address, value };

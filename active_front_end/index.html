@@ -8,10 +8,13 @@
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-   <div class=logo><img src="rulogo.avif" alt="ru logo"style="width: 100px; height: auto;">
+  <div id="headlist"> 
+   <div class="logo"><img src="rulogo.avif" alt="ru logo"style="width: 100px; height: auto;">
     <h1>Active Grid motor controller</h1>
   </div>
-    
+  <div id="photo1" ><img src="infofhoto.png" alt="ru logo"style="width: 300px; height: auto;">
+  </div>
+  </div>
     <!-- Container for motor boxes -->
     <div class = "units">
       <div id="motorContainer">
@@ -35,32 +38,32 @@
           
       <div class="input-group2">
           <label for="value">Value:</label>
-          <input type="number" class="value-input" id="value" name="value" required>
+          <input type="number" class="value-input" id="value" name="value" value= 0 required>
       </div>
 
-      <button id="addmotorbutton" type="submit">Add Motor</button>
+      <button id="addmotorbutton" type="submit">Add new motor</button>
     </form>
 
   </div>
-    
 
-    <div id="sliderContainer">
-      <label for="slider">Global value changer:</label>
-      <input type="range" id="slider" min="0" max="240">
-      <span id="sliderValue">0 RPM</span>
+<div id="batchupdatebox">    
+  <div id="sliderContainer">
+  <label for="slider">Global value changer:</label>
+  <input type="range" id="slider" min="0" max="240">
+  <span id="sliderValue">0 RPM</span>
   </div>
-   <!-- Dropdown for changing type of selected motors -->
+  <!-- Dropdown for changing type of selected motors -->
   <label for="type-select">Global type change:</label>
   <select id="type-select">
-      <option value="speed">Speed</option>
-      <option value="pos">Position</option>
+    <option value="speed">Speed</option>
+    <option value="pos">Position</option>
   </select>
 
-
   <div> <button type="submit" id="batchupdatebutton"> Batch update </button></div>
-  <div class=photo><img src="infofhoto.png" alt="ru logo"style="width: 1000px; height: auto;">
-    <h1></h1>
-  </div>
+</div>
+
+
+  
    <script src="app.js"></script>
 </body>
 </html>
