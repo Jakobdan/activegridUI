@@ -10,11 +10,10 @@ const cors = require("cors");
 
 const app = express();
 
-const hostname = 'localhost'
 
-const port = 3000;
 
-const API_URL = "http://" + hostname + ":" + port + "/api/v1"
+const port = process.env.port ||3000;
+
 
 //Tell express to use the body parser module
 app.use(bodyParser.json());
@@ -128,7 +127,7 @@ app.delete("/api/v1/motors/:address", (req, res) => {
 
 if (process.env.NODE_ENV !== "test") {
   app.listen(port, () => {
-    console.log(`Server listening on port ${port}`);
+    console.log(`Server listening on port ${port} :)`);
   });
 }
 

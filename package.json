@@ -1,12 +1,10 @@
 {
-    "name": "assignment_3",
+    "name": "Active grid",
     "version": "0.0.1",
-    "description": "A backend for a library application.",
+    "description": "A backend for the active grid.",
     "main": "index.js",
     "scripts": {
-      "start": "node index.js",
-      "dev": "nodemon index.js",
-      "test": "echo \"Error: no test specified\" && exit 1"
+      "start": "node index.js"
     },
     "keywords": [
       "library",
