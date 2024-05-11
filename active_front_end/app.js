@@ -174,12 +174,12 @@ async function deleteMotor(motorAddress) {
     }
 }
 
-// Function to add a new motor
 async function addMotor(event) {
     event.preventDefault();
     const form = document.getElementById('addMotorForm');
+    const errorContainer = document.getElementById('errorContainer');
     const formData = new FormData(form);
-    console.log(formData)
+
     try {
         const response = await axios.post(API_URL + 'motors', Object.fromEntries(formData));
         const data = response.data;
@@ -187,13 +187,22 @@ async function addMotor(event) {
         console.log('New motor added:', data);
         fetchMotors(); // Refresh motor list after adding
         form.reset(); // Clear form fields
+        errorContainer.textContent = ''; // Clear any previous errors
     } catch (error) {
         console.error('Error adding motor:', error);
+
+        // Check if the error response has data and a message
+        if (error.response && error.response.data && error.response.data.message) {
+            errorContainer.textContent = error.response.data.message;
+        } else {
+            errorContainer.textContent = 'Failed to add motor due to an unexpected error.';
+        }
     }
 }
+
 // Function to handle scroll wheel event on input fields and slider
 function handleScroll(event) {
-    
+
   const target = event.target;
   const step = parseInt(target.step) || 1; // Get step attribute or default to 1
   let currentValue = parseInt(target.value) || 0;
