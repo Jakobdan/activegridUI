@@ -330,6 +330,27 @@ async function stopmotors() {
     }
 }
 
+async function changeallmotors(val) {
+
+    try {
+        const response = await axios.post(API_URL + 'changeAll/'+ val);
+        const data = response.data;
+
+        console.log('Motors changed:', data);
+        fetchMotors(); // Changed motor list after adding
+        errorContainer.textContent = ''; // Clear any previous errors
+    } catch (error) {
+        console.error('Error changing all motor:', error);
+
+        // Check if the error response has data and a message
+        if (error.response && error.response.data && error.response.data.message) {
+            errorContainer.textContent = error.response.data.message;
+        } else {
+            errorContainer.textContent = 'Failed to change all motors due to an unexpected error.';
+        }
+    }
+}
+
 
 
 // Example usage:
@@ -373,28 +394,8 @@ document.getElementById('openallbutton').addEventListener('mousedown', function(
 });
 document.getElementById('openallbutton').addEventListener('mouseup', async function() {
     this.classList.toggle('active-open-close-all');
+    changeallmotors(90)
     
-    try {
-        const response = await axios.get(API_URL + 'motors');
-        const motors = response.data;
-
-        motors.forEach(motor => {
-             // Set the value of each motor to 0 (assuming you wanted to reset rather than set to 90)
-            try {
-                const response = axios.patch(API_URL + `motors/${motor.address}`, {
-                    address: parseInt(motor.address),
-                    type: "pos",
-                    value: 0 // Convert value to integer
-                });
-                        fetchMotors(); // Refresh motor list after updating
-            } catch (error) {
-                console.error('Error updating motor:', error);
-            }
-        });
-        fetchMotors()
-    } catch (error) {
-        console.error('Failed to fetch motors:', error);
-    }
 });
 
 document.getElementById('closeallbutton').addEventListener('mousedown', function() {
@@ -403,29 +404,7 @@ document.getElementById('closeallbutton').addEventListener('mousedown', function
 });
 document.getElementById('closeallbutton').addEventListener('mouseup', async function() {
     this.classList.toggle('active-open-close-all');
-    
-    try {
-        const response = await axios.get(API_URL + 'motors');
-        const motors = response.data;
-
-        motors.forEach(motor => {
-             // Set the value of each motor to 0 (assuming you wanted to reset rather than set to 90)
-            try {
-                const response = axios.patch(API_URL + `motors/${motor.address}`, {
-                    address: parseInt(motor.address),
-                    type: "pos",
-                    value: 90 // Convert value to integer
-                });
-        
-                fetchMotors(); // Refresh motor list after updating
-            } catch (error) {
-                console.error('Error updating motor:', error);
-            }
-        });
-        fetchMotors()
-    } catch (error) {
-        console.error('Failed to fetch motors:', error);
-    }
+    changeallmotors(0)
 });
 
 // Fetch motors when the page loads

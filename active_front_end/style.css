@@ -7,7 +7,7 @@ h1{
  }
 
 img{
-  width: 100px;
+  width: 30%;
   height: auto;
   margin-left: 10px; /* Add some margin for spacing */
 }
@@ -20,6 +20,7 @@ header {
   padding: 20px;
   text-align: center;
 }
+
  /* Style for motor boxes */
  .motor-box {
   border: 5px solid #ffffff;
@@ -156,7 +157,7 @@ header {
   background-color: rgb(225, 14, 39);
 }
 .selectallbtn{
-  background-color: rgb(55, 0, 220);
+  background-color: rgb(73, 101, 240);
 }
 .openallbtn,.closeallbtn{
   background-color: rgb(175, 175, 175);
