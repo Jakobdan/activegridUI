@@ -81,7 +81,7 @@ app.post("/api/v1/motors", (req, res) => {
   res.status(201).json(motors);
 });
 
-app.post("/api/v1/restart", (req, res) => {
+app.post("/api/v1/stop", (req, res) => {
 
   motors = [
     { address: 1, type: "speed", value: 0},
@@ -92,7 +92,7 @@ app.post("/api/v1/restart", (req, res) => {
   res.status(201).json(motors);
 
 });
-app.post("/api/v1/stop", (req, res) => {
+app.post("/api/v1/restart", (req, res) => {
 
   motors = [
     { address: 1, type: "pos", value: 0},
