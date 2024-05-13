@@ -105,10 +105,11 @@ app.post("/api/v1/restart", (req, res) => {
   res.status(201).json(motors);
 
 });
-app.post("/api/v1/changeAll/:val", (req, res) => {
+app.post("/api/v1/changeAll/:val/:type", (req, res) => {
 
   motors.forEach(motor => {
     motor.value = parseInt(req.params.val)
+    motor.type = req.params.type
   })
   res.status(201).json(motors);
 

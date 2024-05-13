@@ -330,10 +330,10 @@ async function stopmotors() {
     }
 }
 
-async function changeallmotors(val) {
+async function changeallmotors(val,type) {
 
     try {
-        const response = await axios.post(API_URL + 'changeAll/'+ val);
+        const response = await axios.post(API_URL + 'changeAll/'+ val+'/'+type);
         const data = response.data;
 
         console.log('Motors changed:', data);
@@ -394,7 +394,7 @@ document.getElementById('openallbutton').addEventListener('mousedown', function(
 });
 document.getElementById('openallbutton').addEventListener('mouseup', async function() {
     this.classList.toggle('active-open-close-all');
-    changeallmotors(0)
+    changeallmotors(0,'pos')
     
 });
 
@@ -404,7 +404,7 @@ document.getElementById('closeallbutton').addEventListener('mousedown', function
 });
 document.getElementById('closeallbutton').addEventListener('mouseup', async function() {
     this.classList.toggle('active-open-close-all');
-    changeallmotors(90)
+    changeallmotors(90,'pos')
 });
 
 // Fetch motors when the page loads
