@@ -136,6 +136,8 @@ app.post("/api/v1/stop", (req, res) => {
     { address: 15, type: "pos", value: 0},
     { address: 16, type: "pos", value: 0},
   ];
+
+
   res.status(201).json(motors);
 
 });

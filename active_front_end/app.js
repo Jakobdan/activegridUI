@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function() {
         switch (typeSelect.value) {
             case 'speed':
                 slider.min = "0";
-                slider.max = "240";
+                slider.max = "2400";
                 slider.value = 0;
                 sliderValue.textContent = `${slider.value} RPM`;
                 break;
@@ -99,7 +99,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 break;
             default:
                 slider.min = "0";
-                slider.max = "240";
+                slider.max = "2400";
                 slider.value = 0;
                 sliderValue.textContent = `${slider.value} RPM`;
                 break;

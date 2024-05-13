@@ -146,7 +146,7 @@ header {
 
 .restartbtn,.stopbtn,.selectallbtn,.openallbtn,.closeallbtn{
   background-color: rgb(69, 243, 69);
-  padding: 20px;
+  padding: 10px;
   display: inline-block;
   margin: 5px;
   font-weight: bold;
