@@ -394,7 +394,7 @@ document.getElementById('openallbutton').addEventListener('mousedown', function(
 });
 document.getElementById('openallbutton').addEventListener('mouseup', async function() {
     this.classList.toggle('active-open-close-all');
-    changeallmotors(90)
+    changeallmotors(0)
     
 });
 
@@ -404,7 +404,7 @@ document.getElementById('closeallbutton').addEventListener('mousedown', function
 });
 document.getElementById('closeallbutton').addEventListener('mouseup', async function() {
     this.classList.toggle('active-open-close-all');
-    changeallmotors(0)
+    changeallmotors(90)
 });
 
 // Fetch motors when the page loads
