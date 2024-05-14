@@ -48,7 +48,7 @@ app.get("/api/v1/motors", (req, res) => {
 });
 
 // GET a specific motor by Address
-app.get("/api/v1/motors/:Address", (req, res) => {
+app.get("/api/v1/motor/:Address", (req, res) => {
   const motorAddress = parseInt(req.params.address);
   const motor = motors.find(motor => motor.address === motorAddress);
   if (!motor) {
